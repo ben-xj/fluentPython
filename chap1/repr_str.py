@@ -16,3 +16,17 @@ class FrenchDeck:
     def __getitem__(self, position):
         return self._cards[position]
     
+    # def __str__(self) -> str:
+    #     # string
+    #     return 'This is a FrenchDeck object from str'
+    
+    def __repr__(self) -> str:
+        # fallback
+        # representation
+        return 'This is a FrenchDeck object from repr'
+    
+print(FrenchDeck())
+print(str(FrenchDeck()))
+
+deck = FrenchDeck()
+print(deck)
