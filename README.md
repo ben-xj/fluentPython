@@ -10,3 +10,4 @@ Python进阶学习笔记，参考但不限于《流畅的Python》一书内容
 | 3 | repr_str.py | `__repr__`和`__str__`方法的区别 |
 | 4 | math_op_1 | 任意类型的加减乘除 |
 | 5 | comprehension.py | 利用推导式一行代码生成列表、元组、字典、集合 |
+| 6 | generator.py | 跟着ChatGPT学习生成器是何方神圣 |
