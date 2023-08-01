@@ -14,3 +14,4 @@ Python进阶学习笔记，参考但不限于《流畅的Python》一书内容
 | 6 | generators.ipynb | 跟着ChatGPT学习生成器是何方神圣 |
 | 7 | python-sort.ipynb | ChatGPT带你彻底搞懂Python排序 | python-sort.md |
 | 8 | single_dispatch.ipynb | 原来python也能函数重载? | 
+| 9 | all_any.py | all和any函数一行更比四行强 |
