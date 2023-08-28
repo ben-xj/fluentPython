@@ -16,4 +16,4 @@ Python进阶学习笔记，参考但不限于《流畅的Python》一书内容
 | 8 | [single_dispatch.ipynb](single_dispatch.ipynb) | 原来python也能函数重载? | 
 | 9 | [all_any.py](all_any.py) | all和any函数一行更比四行强 |
 | 10 | [t_loguru.py](t_loguru.py) | 最最最最最简单的日志库loguru |
-| 11 | [para_loguru.py](para_loguru.py) | 我的loguru怎么丢日志了 | 
+| 11 | [para_loguru.py](para_loguru.py) | 我的loguru日志去哪了 | 
