@@ -33,7 +33,7 @@ print(any_greater_than_2_simple(a))
 
 # %%
 # benchmark
-from stopwatch import StopWatch
+from util.stopwatch import StopWatch
 import random
 
 arr = [random.randint(1,10) for _ in range(100_000)]

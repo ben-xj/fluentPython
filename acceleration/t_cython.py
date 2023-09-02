@@ -38,3 +38,11 @@ if __name__ == '__main__':
     print(f'Cython: {sw.getElapsedTime()} ms')
 
     print((r1 == r2).all())
+
+    sw.start()
+    for _ in range(repeat):
+        r3 = A * B
+    sw.stop()
+    print(f'Numpy: {sw.getElapsedTime()} ms')
+
+    print((r1 == r3).all())

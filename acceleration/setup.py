@@ -1,7 +1,15 @@
-# -*- coding: utf-8 -*-
- 
-"""
-    @Author: 哈欠星人
-    @Date: 2023/9/1 19:42
-    @Description: 快来给我改了！！！！
-"""
+from setuptools import setup, Extension
+from Cython.Build import cythonize
+import numpy as np
+
+ext_modules = [
+    Extension("func_to_be_cythonized",
+              ["func_to_be_cythonized.pyx"],
+              include_dirs=[np.get_include()])
+]
+
+setup(
+    name='Fluent Python',
+    ext_modules=cythonize(ext_modules),
+    script_args=["build_ext", "--build-lib", "."]
+)

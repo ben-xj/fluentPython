@@ -1,4 +1,4 @@
-from stopwatch import StopWatch
+from util.stopwatch import StopWatch
 
 # literal
 alist = [1,2,3,4]
