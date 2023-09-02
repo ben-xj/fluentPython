@@ -1,5 +1,6 @@
 import time
 
+
 class StopWatch:
     def __init__(self):
         self.__startTime = time.time()
