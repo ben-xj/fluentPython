@@ -1,32 +1,41 @@
-"""
-Usages of joblib
-"""
 import time
 
 from joblib import Parallel, delayed
+import numpy as np
 
+from util.stopwatch import StopWatch
 
-def calculate_square(x):
-    # simulate a bunch of things...
-    time.sleep(0.1)
-    return x * x
+def func_with_large_input(i, arr):
+    # print(arr.flags)
+    time.sleep(0.01)
+    arr_i = arr[i, :] + 1
+    return arr_i
 
+def test_serial(arr):
+    sw = StopWatch()
+    result = [func_with_large_input(i, arr) for i in range(100)]
+    sw.stop()
+    print(f'Serial: {sw.getElapsedTime()} ms')
 
-def square_list(x: list):
-    return [i * i for i in x]
+def test_parallel(arr):
+    sw = StopWatch()
+    tasks = [delayed(func_with_large_input)(i, arr) for i in range(100)]
+    result = Parallel(n_jobs=4)(tasks)
+    sw.stop()
+    print(f'Parallel: {sw.getElapsedTime()} ms')
+
+def test_parallel_batch(arr):
+    sw = StopWatch()
+    n_jobs = 4
+    jobs = 100
+    batch_size = max(1, (jobs + n_jobs - 1) // n_jobs)
+    result = Parallel(n_jobs=n_jobs, batch_size=batch_size)(delayed(func_with_large_input)(i, arr) for i in range(100))
+    sw.stop()
+    print(f'Parallel with batch: {sw.getElapsedTime()} ms')
 
 
 if __name__ == '__main__':
-    # parallel processing
-    # start = time.time()
-    # results = Parallel(n_jobs=4, backend='loky', prefer='threads', batch_size=25)(delayed(calculate_square)(i) for i in range(100))
-    # end = time.time()
-    # print(results)
-    # print('Time taken: {}'.format(end - start))
-
-    arr = list(range(1000))
-    start = time.time()
-    results = Parallel(n_jobs=4, backend='loky')(delayed(square_list)(arr) for i in range(4000))
-    # results = Parallel(n_jobs=4, backend='loky', batch_size=1000)(delayed(square_list)(arr) for i in range(4000))
-    end = time.time()
-    print('Time taken: {}'.format(end - start))
+    arr = np.random.randint(0,100, size=(100, 50000))
+    test_serial(arr)
+    test_parallel(arr)
+    test_parallel_batch(arr)
