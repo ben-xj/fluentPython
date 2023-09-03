@@ -18,3 +18,4 @@ Python进阶学习笔记，参考但不限于《流畅的Python》一书内容
 | 10 | [t_loguru.py](loggings/t_loguru.py) | 最最最最最简单的日志库loguru |
 | 11 | [para_loguru.py](loggings/para_loguru.py) | 我的loguru日志去哪了 | 
 | 12 | [t_cython.py](acceleration/t_cython.py) | Cython—让你的代码加速2个数量级的秘术 |
+| 13 | [t_joblib.py](acceleration/t_joblib.py) | Joblib—我愿称之为最简单好用的并行库 |
