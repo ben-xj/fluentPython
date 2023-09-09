@@ -4,7 +4,7 @@
 """
 import numpy as np
 
-from acceleration.func_to_be_cythonized import elementwise_multiply
+from acceleration.multiply import elementwise_multiply, elementwise_multiply_faster
 from util.stopwatch import StopWatch
 
 
@@ -33,16 +33,21 @@ if __name__ == '__main__':
 
     sw.start()
     for _ in range(repeat):
+        r3 = A * B
+    sw.stop()
+    print(f'Numpy: {sw.getElapsedTime()} ms')
+    print((r1 == r3).all())
+
+    sw.start()
+    for _ in range(repeat):
         r2 = elementwise_multiply(A, B)
     sw.stop()
     print(f'Cython: {sw.getElapsedTime()} ms')
-
     print((r1 == r2).all())
 
     sw.start()
     for _ in range(repeat):
-        r3 = A * B
+        r4 = elementwise_multiply_faster(A, B)
     sw.stop()
-    print(f'Numpy: {sw.getElapsedTime()} ms')
-
-    print((r1 == r3).all())
+    print(f'Cython: {sw.getElapsedTime()} ms')
+    print((r1 == r4).all())

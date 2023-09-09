@@ -29,6 +29,8 @@ def test_parallel_batch(arr):
     n_jobs = 4
     jobs = 100
     batch_size = max(1, (jobs + n_jobs - 1) // n_jobs)
+    # or
+    # batch_size = max(1, int(math.ceil(jobs / n_jobs)))
     result = Parallel(n_jobs=n_jobs, batch_size=batch_size)(delayed(func_with_large_input)(i, arr) for i in range(100))
     sw.stop()
     print(f'Parallel with batch: {sw.getElapsedTime()} ms')
