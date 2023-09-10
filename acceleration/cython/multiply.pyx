@@ -31,3 +31,21 @@ def elementwise_multiply_faster(
             result[i, j] = A[i, j] * B[i, j]
 
     return result
+
+
+
+@boundscheck(False)
+@wraparound(False)
+def elementwise_multiply_even_faster(
+        double[:, :] A,
+        double[:, :] B):
+    cdef:
+        int nrows = A.shape[0]
+        int ncols = A.shape[1]
+        cnp.ndarray[double, ndim=2] result = np.zeros((nrows, ncols), dtype=np.float64)
+        int i, j
+    for i in range(nrows):
+        for j in range(ncols):
+            result[i, j] = A[i, j] * B[i, j]
+
+    return result
