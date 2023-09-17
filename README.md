@@ -20,4 +20,5 @@ Python进阶学习笔记，参考但不限于《流畅的Python》一书内容
 | 12 | [t_elementwise_multiply.py](acceleration/t_elementwise_multiply.py) | Cython—让你的代码加速2个数量级的秘术 |
 | 13 | [t_joblib.py](acceleration/t_joblib.py) | Joblib—我愿称之为最简单好用的并行库 |
 | 14 | [multiply.pyx](acceleration/cython/multiply.pyx) | Cython—第二弹！！边界检查优化，再快一倍！！！ |
-| 15| [t_knapsack.py](acceleration/t_knapsack.py) | Cython-第三弹—内存视图, 索引操作大杀器!!|
+| 15 | [t_knapsack.py](acceleration/t_knapsack.py) | Cython-第三弹—内存视图, 索引操作大杀器!!|
+| 16 | [t_path.py](acceleration/t_path.py) | Python项目路径问题解决 |
