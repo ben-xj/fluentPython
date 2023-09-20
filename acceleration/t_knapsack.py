@@ -1,5 +1,6 @@
 import numpy as np
 import random
+
 from util.stopwatch import StopWatch
 from acceleration.knapsack import knapsack_2d_dp_cy, knapsack_2d_dp_cy_full_power
 
@@ -36,7 +37,7 @@ if __name__ == "__main__":
     weights = [random.randint(1, 20) for _ in range(num_items)]
     capacity = 50
 
-    repeat  = 10000
+    repeat  = 5000
 
     sw = StopWatch()
     for _ in range(repeat):

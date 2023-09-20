@@ -1,0 +1,6 @@
+{
+    "code-runner.runInTerminal": true,
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+}

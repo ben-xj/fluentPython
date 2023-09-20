@@ -32,7 +32,7 @@ def elementwise_multiply_faster(
 
     return result
 
-
+from cython.parallel import prange
 
 @boundscheck(False)
 @wraparound(False)
@@ -44,7 +44,7 @@ def elementwise_multiply_even_faster(
         int ncols = A.shape[1]
         cnp.ndarray[double, ndim=2] result = np.zeros((nrows, ncols), dtype=np.float64)
         int i, j
-    for i in range(nrows):
+    for i in prange(nrows, nogil=True, num_threads=3):
         for j in range(ncols):
             result[i, j] = A[i, j] * B[i, j]
 

@@ -24,7 +24,7 @@ if __name__ == '__main__':
     A = np.random.rand(1000, 1000)
     B = np.random.rand(1000, 1000)
 
-    repeat = 50
+    repeat = 500
     sw = StopWatch()
     # for _ in range(repeat):
     #     r1 = elementwise_multiply_python(A, B)
@@ -56,5 +56,5 @@ if __name__ == '__main__':
     for _ in range(repeat):
         r4 = elementwise_multiply_even_faster(A, B)
     sw.stop()
-    print(f'Cython faster: {sw.getElapsedTime()} ms')
+    print(f'Cython even faster: {sw.getElapsedTime()} ms')
     # print((r1 == r4).all())

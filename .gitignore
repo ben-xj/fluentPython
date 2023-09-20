@@ -6,3 +6,5 @@ log/
 build/
 
 *.so
+*.html
+*.c[pp]
